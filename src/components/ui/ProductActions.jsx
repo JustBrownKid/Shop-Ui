@@ -5,7 +5,7 @@ import QuantitySelector from "./QuantitySelector";
 const ProductActions = (props) => {
     const [quantity, setQuantity] = useState(1);
     return (
-        <div className="flex flex-col gap-3 w-[400px]">
+        <div className="flex flex-col gap-3 w-full sm:w-[350px]">
             <div className="flex gap-3">
                 <QuantitySelector quantity={quantity} setQuantity={setQuantity}/>
                 <button

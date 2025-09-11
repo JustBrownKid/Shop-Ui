@@ -75,8 +75,8 @@ function DetailsPages({ product }) {
 
             <div className="flex justify-center mb-4">
                 <Segmented
-                    size="large"
-                    style={{ backgroundColor: '#9f9f9f' }}
+                    size="middle"
+                    style={{ backgroundColor: '#9f9f9f'  }}
                     className="w-full md:w-[600px] font-bold text-base md:text-lg p-2 text-black"
                     shape="default"
                     options={["Description", "Specification", "Warranty"]}
