@@ -5,6 +5,7 @@ import ColorSelector from "../components/ui/ColorSelector.jsx";
 import ProductInfo from "../components/ui/ProductInfo.jsx";
 import SupportDetails from "../components/ui/SupportDetails.jsx";
 import LabelText from "../components/ui/LabelText.jsx";
+import RelatedProducts from "../components/ui/RelatedProducts.jsx";
 
 function DetailsPages({ product }) {
     const { image, title, vendor, sku, stock, type, price, colors } = product;
@@ -95,6 +96,7 @@ function DetailsPages({ product }) {
                             : infoThree
                 }
             />
+            <RelatedProducts  />
         </div>
     );
 }

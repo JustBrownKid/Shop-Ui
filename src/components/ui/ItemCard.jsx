@@ -1,25 +1,26 @@
 import React from "react";
 import ColorSelector from "./ColorSelector.jsx";
 
-const ItemCard = ({ src, title, price, colors }) => {
-    return (
-        <div className="cursor-pointer m-3 bg-white rounded-md shadow-md overflow-hidden">
-            <img
-                className="w-full aspect-square object-cover"
-                alt={title}
-                src={src}
-            />
-
-            <div className="p-4 flex flex-col gap-2">
-                <p className="text-2xl font-bold text-black">{title}</p>
-                <span className="text-xl text-yellow-500">{price}</span>
-
-                <div className="flex gap-2 mt-1">
-                    <ColorSelector colors={colors} size={25} />
-                </div>
-            </div>
-        </div>
-    );
+const ItemCard = ({ src, title, price, }) => {
+  return (
+    <div className="group cursor-pointer m-2 bg-white rounded shadow overflow-hidden">
+      <div className="relative overflow-hidden">
+        <img
+          className="w-full aspect-square object-cover duration-300 group-hover:scale-110"
+          alt={title}
+          src={src}
+        />
+      </div>
+      <div className="px-4 py-3 flex flex-col">
+        <p className="text-lg md:text-xl font-bold text-gray-900 line-clamp-1">
+          {title}
+        </p>
+        <span className="text-base md:text-lg text-yellow-500">
+          {price}
+        </span>
+      </div>
+    </div>
+  );
 };
 
 export default ItemCard;
