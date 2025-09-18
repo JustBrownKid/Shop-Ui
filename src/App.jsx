@@ -23,12 +23,12 @@ function App() {
 
     return (
       <>
-            {/* <HomePage /> */}
+            <HomePage />
             <BlogPage />
             <Map />
-          {/* <DetailsPages
+          <DetailsPages
               product={product}
-          /> */}
+          />
       </>
   );
 }
