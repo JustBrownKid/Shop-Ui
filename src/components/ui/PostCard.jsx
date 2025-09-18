@@ -4,8 +4,7 @@ import { Flex, Tag } from 'antd';
 
 const PostCard = ({ src, title, price, }) => {
   return (
-    <div className="group cursor-pointer m-2 bg-white rounded shadow    12QWSX
-     '/.,MNBVCXZS'
+    <div className="group cursor-pointer m-2 bg-white rounded shadow'
      /overflow-hidden">
       <div className="relative overflow-hidden">
         <img

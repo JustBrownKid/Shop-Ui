@@ -1,6 +1,7 @@
 import HomePage from './Pages/HomePages.jsx'
 import DetailsPages from './Pages/DetailsPages.jsx'
 import BlogPage from './Pages/BlogPage.jsx'
+import LocationPage from './Pages/LocationPage.jsx'
 import Map from './components/Map/Map.jsx';
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
       <>
             <HomePage />
             <BlogPage />
-            <Map />
+            <LocationPage />
           <DetailsPages
               product={product}
           />
