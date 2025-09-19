@@ -2,7 +2,6 @@ import PostCard from '../components/ui/PostCard.jsx';
 import { useState } from "react";
 
 function BlogPage() {
-    const [test, setTest] = useState();
 
     return (
         <>

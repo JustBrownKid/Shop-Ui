@@ -2,7 +2,7 @@ import HomePage from './Pages/HomePages.jsx'
 import DetailsPages from './Pages/DetailsPages.jsx'
 import BlogPage from './Pages/BlogPage.jsx'
 import LocationPage from './Pages/LocationPage.jsx'
-import Map from './components/Map/Map.jsx';
+import HiringPage from './Pages/HiringPage.jsx'
 
 function App() {
 
@@ -27,9 +27,10 @@ function App() {
             <HomePage />
             <BlogPage />
             <LocationPage />
-          <DetailsPages
-              product={product}
-          />
+            <HiringPage />
+            <DetailsPages
+                product={product}
+            />
       </>
   );
 }

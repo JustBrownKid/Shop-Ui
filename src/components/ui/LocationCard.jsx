@@ -16,10 +16,10 @@ const LocationCard = ({ title, text, phone, position, PopupText }) => {
         <p className="text-lg md:text-xl font-bold text-gray-900 line-clamp-1">
           {title}
         </p>
-        <p className="text-sm font mt-2 text-gray-900 line-clamp-3">
+        <p className="text-sm font m-1 text-gray-900 line-clamp-3">
           {text}
         </p>
-         <p className="text-sm font text-gray-900 line-clamp-3">
+         <p className="text-sm font text-gray-900 line-clamp-1">
           Phone : {phone}
         </p>
         <div className="flex flex-row justify-end gap-2">
