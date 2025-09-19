@@ -17,7 +17,7 @@ const HiringItem = ({ label, sections }) => {
       >
         <span className="text-lg">{label}</span>
         <svg
-          className={`w-5 h-5 transition-transform duration-500 transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-5 h-5 transition-transform duration-300 transform ${isOpen ? 'rotate-180' : ''}`}
           viewBox="0 0 20 20"
           fill="currentColor"
         >
@@ -30,7 +30,7 @@ const HiringItem = ({ label, sections }) => {
       </button>
 
       <div
-        className={`collapsible-content duration-500  ${isOpen ? 'max-h-[1000px] py-4' : 'max-h-0'}`}
+        className={`collapsible-content duration-300  ${isOpen ? 'max-h-[1000px] py-4' : 'max-h-0'}`}
         aria-hidden={!isOpen}
       >
         <div className="px-4 text-gray-600 bg-white">
