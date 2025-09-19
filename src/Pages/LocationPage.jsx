@@ -5,7 +5,7 @@ function LocationPage() {
     return (
         <>
             <div  className='xl:px-20 lg:px-16 md:px-12 sm:px-8 px-4 py-10 bg-gray-100 min-h-screen'>
-                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center">
+                <div className="">
 
                     <LocationCard title="Test Title For Location"
                         text="This is the test location for shop and street is 115 70 Myanmar Mandalay Chanmyaathazi"

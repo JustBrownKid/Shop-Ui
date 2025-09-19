@@ -23,11 +23,11 @@ function App() {
     };
 
     return (
-      <>
+        <>
+            <HiringPage />
             <HomePage />
             <BlogPage />
             <LocationPage />
-            <HiringPage />
             <DetailsPages
                 product={product}
             />

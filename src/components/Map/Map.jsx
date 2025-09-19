@@ -19,7 +19,7 @@ L.Marker.prototype.options.icon = DefaultIcon;
 function Map({position, PopupText}) {
 
   return (
-    <MapContainer center={position} zoom={17} style={{ height: '300px', width: '100%', marginTop:"10px" }}>
+    <MapContainer className='duration-500' center={position} zoom={17} style={{ height: '300px', width: '100%', marginTop:"10px" }}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

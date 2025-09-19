@@ -1,35 +1,64 @@
-import React from 'react';
-import { Collapse } from 'antd';
-const HiringItem = ({label,sections }) => {
-    return (
-        <Collapse
-            style={{margin:"8px 150px"}}
-            items={[{   
-                key: '1', label: <spam style={{fontSize: "18px"}}>{label}</spam>, children:
-                    <div>
-                       {sections.map((section, index) => (
-                            <div key={index}>
-                                <p className="text-lg ml-2 font-bold text-gray-900">
-                                    {section.title}
-                                </p>
-                                {Array.isArray(section.content) ? (
-                                    <ul>
-                                        {section.content.map((item, i) => (
-                                            <li key={i} className="text-sm m-1 ml-5 text-gray-900">
-                                                {item}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                ) : (
-                                    <p className="text-sm m-1 ml-5 text-gray-900 line-clamp-3">
-                                        {section.content}
-                                    </p>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-            }]}
-        />
-    );  
-}
+import React, { useState } from 'react';
+
+// Reusable Collapsible component for a single hiring item
+const HiringItem = ({ label, sections }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleOpen = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className="bg-white rounded-lg shadow-md overflow-hidden my-2 mx-auto  w-full">
+      <button
+        className="flex items-center justify-between w-full p-4 font-semibold text-left text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-lg transition duration-200 ease-in-out"
+        onClick={toggleOpen}
+        aria-expanded={isOpen}
+      >
+        <span className="text-lg">{label}</span>
+        <svg
+          className={`w-5 h-5 transition-transform duration-500 transform ${isOpen ? 'rotate-180' : ''}`}
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fillRule="evenodd"
+            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+            clipRule="evenodd"
+          />
+        </svg>
+      </button>
+
+      <div
+        className={`collapsible-content duration-500  ${isOpen ? 'max-h-[1000px] py-4' : 'max-h-0'}`}
+        aria-hidden={!isOpen}
+      >
+        <div className="px-4 text-gray-600 bg-white">
+          {sections.map((section, index) => (
+            <div key={index} className="mb-4">
+              {section.title && (
+                <p className="text-lg ml-2 font-bold text-gray-900">
+                  {section.title}
+                </p>
+              )}
+              {Array.isArray(section.content) ? (
+                <ul className="list-disc ml-8">
+                  {section.content.map((item, i) => (
+                    <li key={i} className="text-sm my-1 text-gray-700">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-sm my-1 text-gray-700 ml-5">
+                  {section.content}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 export default HiringItem;
