@@ -12,7 +12,7 @@ const ItemCard = ({ src, title, price, }) => {
         />
       </div>
       <div className="px-4 py-3 flex flex-col">
-        <p className="text-lg md:text-xl font-bold text-gray-900 line-clamp-1">
+        <p className="text-lg md:text-xl font-bold text-gray-900 line-clamp-2">
           {title}
         </p>
         <span className="text-base md:text-lg text-yellow-500">

@@ -5,7 +5,6 @@ import LocationPage from './Pages/LocationPage.jsx'
 import HiringPage from './Pages/HiringPage.jsx'
 
 function App() {
-
     const product = {
         image: 'https://images.unsplash.com/photo-1706275399494-fb26bbc5da63',
         title: 'This is Test Item Title Power Bank 1000Mah',
@@ -24,9 +23,9 @@ function App() {
 
     return (
         <>
-            <HiringPage />
             <HomePage />
             <BlogPage />
+            <HiringPage />
             <LocationPage />
             <DetailsPages
                 product={product}

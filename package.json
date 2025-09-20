@@ -14,9 +14,11 @@
     "@tailwindcss/vite": "^4.1.13",
     "antd": "^5.27.3",
     "leaflet": "^1.9.4",
+    "lottie-web": "^5.13.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-leaflet": "^5.0.0",
+    "react-lottie": "^1.2.10",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
