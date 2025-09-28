@@ -2,7 +2,7 @@ import React from "react";
 import { Flex, Tag } from 'antd';
 
 
-const PostCard = ({ src, title, price, }) => {
+const PostCard = ({ src, title, tag, }) => {
   return (
     <div className="group cursor-pointer m-2 bg-white rounded shadow'
      /overflow-hidden">
@@ -20,7 +20,7 @@ const PostCard = ({ src, title, price, }) => {
           {title}
         </p>
         <Flex gap="4px 0" wrap>
-          <Tag  bordered={true} color="processing">This is test</Tag>
+          <Tag bordered={true} color="processing">{tag}</Tag>
         </Flex>
 
       </div>

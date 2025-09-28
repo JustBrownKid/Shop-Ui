@@ -2,7 +2,7 @@ import { CommentOutlined, FieldTimeOutlined } from "@ant-design/icons";
 
 function SupportDetails() {
     return (
-        <div className="flex flex-col gap-3 mt-5">
+        <div className="flex flex-col my-8 gap-3 lg:mx-50 lg:my-12">
             <div className="flex flex-col">
                 <div className="flex items-center gap-2">
                     <CommentOutlined className="text-xl md:text-2xl" />

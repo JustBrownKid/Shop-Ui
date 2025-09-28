@@ -28,7 +28,7 @@ function App() {
             <HiringPage />
             <LocationPage />
             <DetailsPages
-                product={product}
+                // product={product}
             />
       </>
   );

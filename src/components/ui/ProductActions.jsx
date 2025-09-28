@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Button } from "antd";
 import QuantitySelector from "./QuantitySelector";
 
-const ProductActions = (props) => {
-    const [quantity, setQuantity] = useState(1);
+const ProductActions = ({color,  quantity, setQuantity }) => {
     return (
         <div className="flex flex-col gap-3 w-full sm:w-[350px]">
             <div className="flex gap-3">
@@ -11,7 +10,7 @@ const ProductActions = (props) => {
                 <button
                     className="bg-white text-black font-semibold py-2 px-4 border border-black text-xl w-full transition-colors duration-200 hover:bg-black hover:text-white"
                     onClick={() => {
-                        console.log(props.color.name, 'color item', quantity, 'pcs order');
+                        console.log(color.name ,'color item', quantity, 'pcs order');
                     }}
                 >
                     Add To Cart
