@@ -1,8 +1,10 @@
 import React from "react";
 import ColorSelector from "./ColorSelector.jsx";
+import { Link } from "react-router-dom";
 
-const ItemCard = ({ src, title, price, }) => {
+const ItemCard = ({id , src, title, price, }) => {
   return (
+    <Link to={`/details/${id}`}>
     <div className="group cursor-pointer m-2 bg-white rounded shadow overflow-hidden">
       <div className="relative overflow-hidden">
         <img
@@ -19,7 +21,8 @@ const ItemCard = ({ src, title, price, }) => {
           {price}
         </span>
       </div>
-    </div>
+      </div>
+      </Link>
   );
 };
 

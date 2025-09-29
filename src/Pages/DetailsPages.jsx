@@ -11,6 +11,7 @@ import Loading from '../components/ui/Loading.jsx'
 import NotFound from "../components/ui/NotFound.jsx";
 import { useParams } from "react-router-dom";
 
+import CartList from './CartList'
 
 function DetailsPages() {
   const [value, setValue] = useState("Description");
@@ -28,6 +29,9 @@ function DetailsPages() {
     if (data) setProduct(data?.data);
   }, [data]);
 
+  const handleAddToCartParent = (product) => {
+  };
+  
   if (loading) return <Loading />;
   if (error) return <NotFound/>;
   if (!product) return <p>Loading product...</p>;
@@ -100,10 +104,14 @@ function DetailsPages() {
 
           {/* Quantity & actions */}
           <ProductActions
+            product={product}
             color={color}
             quantity={quantity}
             setQuantity={setQuantity}
+            onAddToCart={() => handleAddToCartParent(product , color)} 
           />
+
+          {/* <CartList/> */}
 
         </div>
       </div>

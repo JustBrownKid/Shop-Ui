@@ -20,7 +20,8 @@ function HomePage() {
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 justify-center">
                  {data?.data?.map((product) => (
                     <ItemCard
-                   key={product.id}
+                         key={product.id}
+                         id={product.id}
                     title={product.title}
                     price={product.price}
                     src={product.image}
