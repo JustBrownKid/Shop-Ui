@@ -7,23 +7,29 @@ import SupportDetails from "../components/ui/SupportDetails.jsx";
 import LabelText from "../components/ui/LabelText.jsx";
 import RelatedProducts from "../components/ui/RelatedProducts.jsx";
 import { useApi } from "../hook/ApiCall.jsx";
+import Loading from '../components/ui/Loading.jsx'
+import NotFound from "../components/ui/NotFound.jsx";
+import { useParams } from "react-router-dom";
+
 
 function DetailsPages() {
   const [value, setValue] = useState("Description");
   const [product, setProduct] = useState(null);
   const [color, setColor] = useState({});
   const [quantity, setQuantity] = useState(1);
+  const { id } = useParams();
+
 
   const { data, loading, error } = useApi(
-    `http://127.0.0.1:8000/api/products/${quantity}`
+    `http://127.0.0.1:8000/api/products/${id}`
   );
 
   useEffect(() => {
     if (data) setProduct(data?.data);
   }, [data]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <Loading />;
+  if (error) return <NotFound/>;
   if (!product) return <p>Loading product...</p>;
 
   const { image, title, vendor, sku, stock, type, price, colors } = product;

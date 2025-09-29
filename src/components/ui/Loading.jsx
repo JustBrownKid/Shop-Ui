@@ -14,7 +14,7 @@ const NotFound = () => {
 
   return (
     <div className="fixed w-screen h-screen top-0 left-0 flex items-center justify-center">
-  <Lottie options={defaultOptions} isClickToPauseDisabled={true} height="100px" width="100px" />
+  <Lottie options={defaultOptions} isClickToPauseDisabled={true} height="80px" width="80px" />
 </div>
   
   );

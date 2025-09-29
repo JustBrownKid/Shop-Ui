@@ -1,36 +1,25 @@
-import HomePage from './Pages/HomePages.jsx'
-import DetailsPages from './Pages/DetailsPages.jsx'
-import BlogPage from './Pages/BlogPage.jsx'
-import LocationPage from './Pages/LocationPage.jsx'
-import HiringPage from './Pages/HiringPage.jsx'
+import { Routes, Route } from "react-router-dom";
+
+// Import pages
+import HomePage from "./Pages/HomePages.jsx";
+import DetailsPages from "./Pages/DetailsPages.jsx";
+import BlogPage from "./Pages/BlogPage.jsx";
+import LocationPage from "./Pages/LocationPage.jsx";
+import HiringPage from "./Pages/HiringPage.jsx";
+import NotFound from "./components/ui/NotFound.jsx";
 
 function App() {
-    const product = {
-        image: 'https://images.unsplash.com/photo-1706275399494-fb26bbc5da63',
-        title: 'This is Test Item Title Power Bank 1000Mah',
-        vendor: 'Test Vendor',
-        sku: 'WIBKE10V',
-        stock: 'Available',
-        type: "power bank",
-        price: '35000',
-        colors: [
-            { name: "Pink", value: "#e5e1da" },
-            { name: "Sky Blue", value: "#aad7d9" },
-            { name: "Yellow", value: "#fdffab" },
-            { name: "Orange", value: "#FFA500" },
-        ]
-    };
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/blog" element={<BlogPage />} />
+      <Route path="/hiring" element={<HiringPage />} />
+      <Route path="/location" element={<LocationPage />} />
 
-    return (
-        <>
-            <HomePage />
-            <BlogPage />
-            <HiringPage />
-            <LocationPage />
-            <DetailsPages
-                // product={product}
-            />
-      </>
+      <Route path="/details/:id" element={<DetailsPages />} />
+
+      <Route path="*" element={<NotFound/>} />
+    </Routes>
   );
 }
 

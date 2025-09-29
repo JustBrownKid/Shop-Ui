@@ -14,7 +14,6 @@ const NotFound = () => {
 
   return (
     <div className="flex items-center justify-center fixed inset-0">
-      {/* Mobile-first approach: default size is smaller for mobile */}
       <div>
     <Lottie
         options={defaultOptions}

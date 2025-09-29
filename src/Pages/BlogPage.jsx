@@ -1,6 +1,7 @@
 import PostCard from '../components/ui/PostCard.jsx';
 import { useState } from "react";
 import { useApi } from '../hook/ApiCall.jsx';
+import Loading from '../components/ui/Loading.jsx'
 
 function BlogPage() {
 const items = new Array(10).fill(null);
@@ -8,7 +9,7 @@ const items = new Array(10).fill(null);
     "http://127.0.0.1:8000/api/blogs?list=1"
     );
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loading/>;
     if (error) return <p>Error: {error}</p>;
     return (
         <>
