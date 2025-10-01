@@ -1,6 +1,6 @@
 import React from "react";
 import Lottie from "react-lottie";
-import Loading from '../../assets/Loader Animation.json';
+import Loading from '../../../assets/Pokeball Loading.json';
 
 const NotFound = () => {
   const defaultOptions = {
@@ -13,9 +13,15 @@ const NotFound = () => {
   };
 
   return (
-    <div className="fixed w-screen h-screen top-0 left-0 flex items-center justify-center">
-  <Lottie options={defaultOptions} isClickToPauseDisabled={true} height="80px" width="80px" />
+   <div className="fixed w-screen h-screen top-0 left-0 flex items-center justify-center bg-black/15 backdrop-blur-sm z-50">
+  <Lottie 
+    options={defaultOptions} 
+    isClickToPauseDisabled={true} 
+    height="90px" 
+    width="90px" 
+  />
 </div>
+
   
   );
 };

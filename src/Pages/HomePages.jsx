@@ -1,15 +1,15 @@
-import ItemCard from '../components/ui/ItemCard.jsx';
+import ItemCard from '../components/ui/card/ItemCard.jsx';
 import { useState } from "react";
 import { useApi } from "../hook/ApiCall.jsx"
-import Loading from '../components/ui/Loading.jsx'
-import NotFound from '../components/ui/NotFound.jsx';
+import Loading from '../components/ui/animation/Loading.jsx'
+import NotFound from '../components/ui/animation/NotFound.jsx';
 
 
 function HomePage() {
     
 
     const { data, error, loading, refetch } = useApi(
-    "http://127.0.0.1:8000/api/products?home=1"
+    `${import.meta.env.VITE_API_URL}/products?home=1`
     );
 
     if (loading) return <Loading/>;

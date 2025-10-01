@@ -5,9 +5,9 @@ import DetailsPages from "./Pages/DetailsPages.jsx";
 import BlogPage from "./Pages/BlogPage.jsx";
 import LocationPage from "./Pages/LocationPage.jsx";
 import HiringPage from "./Pages/HiringPage.jsx";
-import NotFound from "./components/ui/NotFound.jsx";
-import CartList from "./Pages/CartList.jsx";
-import Navbar from "./components/ui/NavBar.jsx";
+import NotFound from "./components/ui/animation/NotFound.jsx";
+import CartList from "./Pages/CartPage.jsx";
+import Navbar from "./components/ui/nav/NavBar.jsx";
 
 function App() {
   return (

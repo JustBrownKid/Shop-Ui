@@ -1,12 +1,12 @@
-import PostCard from '../components/ui/PostCard.jsx';
+import PostCard from '../components/ui/card/PostCard.jsx';
 import { useState } from "react";
 import { useApi } from '../hook/ApiCall.jsx';
-import Loading from '../components/ui/Loading.jsx'
+import Loading from '../components/ui/animation/Loading.jsx'
 
 function BlogPage() {
 const items = new Array(10).fill(null);
     const { data, error, loading, refetch } = useApi(
-    "http://127.0.0.1:8000/api/blogs?list=1"
+    `${import.meta.env.VITE_API_URL}/blogs?list=1`
     );
 
     if (loading) return <Loading/>;

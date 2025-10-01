@@ -21,6 +21,8 @@ export const CartProvider = ({ children }) => {
     }
   }, [cart]);
 
+  const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+
   const addToCart = (product) => {
     const storedCart = localStorage.getItem("cart");
     const currentCart = storedCart ? JSON.parse(storedCart) : [];
@@ -103,6 +105,7 @@ export const CartProvider = ({ children }) => {
       value={{
         cart,
         addToCart,
+        totalQuantity,
         increaseQuantity,
         decreaseQuantity,
         removeItem,

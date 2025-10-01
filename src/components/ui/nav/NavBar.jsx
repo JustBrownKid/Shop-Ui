@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { ShoppingCartOutlined } from '@ant-design/icons';
+import { Badge, Button } from "antd";
+import { CartContext } from "../../Contex/CartContext";
+import CartDrawer from '../cart/CartDrawer'
+import CartPage from '../../../Pages/CartPage'
+
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  // Assuming CartContext provides totalQuantity
+  const { totalQuantity } = useContext(CartContext);
 
   const links = [
     { name: "Home", to: "/" },
@@ -17,7 +27,7 @@ export default function Navbar() {
         to={to}
         className={({ isActive }) =>
           `block px-3 py-2 rounded-md text-base font-medium transition-colors duration-150
-           ${isActive ? "bg-gray-900 text-white" : "text-gray-700 hover:bg-gray-100"}`
+            ${isActive ? "bg-gray-900 text-white" : "text-gray-700 hover:bg-gray-100"}`
         }
         onClick={() => setOpen(false)}
       >
@@ -27,7 +37,10 @@ export default function Navbar() {
   };
 
   return (
-    <header className="bg-white shadow-sm fixed top-0 left-0 w-full z-50">
+    // FIX: Changed z-1100 to z-50.
+    // z-50 is a high but standard Tailwind z-index value (z-index: 50),
+    // which is guaranteed to be lower than the drawer's zIndex={5000}.
+    <header className="bg-white shadow-sm fixed top-0 left-0 w-full z-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Left: Logo */}
@@ -46,7 +59,7 @@ export default function Navbar() {
                 to={l.to}
                 className={({ isActive }) =>
                   `px-4 py-2 rounded-md text-sm font-medium transition-all duration-150
-                   ${isActive ? "bg-indigo-600 text-white" : "text-gray-700 hover:bg-gray-100"}`
+                    ${isActive ? "bg-indigo-600 text-white" : "text-gray-700 hover:bg-gray-100"}`
                 }
               >
                 {l.name}
@@ -54,14 +67,44 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Right: CTA / Mobile button */}
+          {/* Right: Cart and Mobile button */}
           <div className="flex items-center gap-4">
-            <a
-              href="/cart"
-              className="hidden sm:inline-flex items-center gap-2 px-3 py-2 rounded-md bg-rose-500 text-white text-sm font-medium shadow-sm hover:opacity-95"
+
+            {/* Cart Link (Visible on ALL screens, but text hidden on small screens) */}
+
+            <button
+
+              onClick={() => setOpenDrawer((prev) => !prev)}
+
+              className="flex items-center gap-2 px-3 py-2 rounded-md bg-black text-white text-sm font-medium shadow-sm hover:opacity-95 relative"
             >
-              View Cart
-            </a>
+              {/* "View Cart" text hidden below sm breakpoint */}
+              <span className="hidden sm:inline-block text-amber-50">View Cart</span>
+
+              {/* Badge positioned relative to icon */}
+              <Badge
+                count={totalQuantity}
+                size={"small"}
+                offset={[10, -6]}
+                showZero={false}
+              >
+                <ShoppingCartOutlined
+                  style={{
+                    fontSize: "1.5em",
+                    color: "white",
+                    padding: '0 4px',
+                  }}
+                />
+              </Badge>
+            </button>
+            <CartDrawer
+              title="Shopping Cart" 
+              open={openDrawer}
+              onClose={() => setOpenDrawer(false)}
+              zIndex={5000}
+            >
+              <CartPage />
+            </CartDrawer>
 
             {/* Mobile menu button */}
             <button
@@ -87,17 +130,11 @@ export default function Navbar() {
       {/* Mobile panel */}
       {open && (
         <div className="md:hidden border-t">
+
           <div className="px-2 pt-2 pb-3 space-y-1">
             {links.map((l) => (
               <NavItem key={l.name} {...l} />
             ))}
-
-            {/* extra mobile actions */}
-            <div className="mt-2 px-3">
-              <a href="/cart" className="block w-full text-center px-4 py-2 rounded-md bg-rose-500 text-white font-medium">
-                View Cart
-              </a>
-            </div>
           </div>
         </div>
       )}

@@ -1,13 +1,13 @@
-import PostCard from '../components/ui/PostCard.jsx';
+import PostCard from '../components/ui/card/PostCard.jsx';
 import { useState } from "react";
-import HiringItem from '../components/ui/HiringItem.jsx';
+import HiringItem from '../components/ui/card/HiringCard.jsx';
 import { useApi } from '../hook/ApiCall.jsx';
-import Loading from '../components/ui/Loading.jsx'
+import Loading from '../components/ui/animation/Loading.jsx'
   
 
 function HiringPage() {
     const { data, loading, error } = useApi(
-    `http://127.0.0.1:8000/api/hirings`
+    `${import.meta.env.VITE_API_URL}/hirings`
   );
   if (loading) return <Loading />;
   if (error) return <p>Error: {error}</p>;

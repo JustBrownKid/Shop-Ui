@@ -1,14 +1,14 @@
 import React from 'react';
-import ItemCard from './ItemCard';
-import { useApi } from '../../hook/ApiCall';
+import ItemCard from '../card/ItemCard';
+import { useApi } from '../../../hook/ApiCall';
 
 const items = new Array(20).fill(null);
 
 const RelatedProducts = () => {
 
   
-const { data, error, loading, refetch } = useApi(
-    "http://127.0.0.1:8000/api/products?home=1"
+  const { data, error, loading, refetch } = useApi(
+  `${import.meta.env.VITE_API_URL}/products?home=1`
     );
 
     if (loading) return <p>Loading...</p>;
@@ -18,6 +18,7 @@ const { data, error, loading, refetch } = useApi(
       {data?.data?.map(( product) => (
           <li key={product.id} className="flex-none w-52">
           <ItemCard
+            id={product.id}
                    key={product.id}
                     title={product.title}
                     price={product.price}

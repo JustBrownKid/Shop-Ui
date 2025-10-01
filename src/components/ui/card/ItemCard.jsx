@@ -1,5 +1,5 @@
 import React from "react";
-import ColorSelector from "./ColorSelector.jsx";
+import ColorSelector from "../products/ColorSelector.jsx";
 import { Link } from "react-router-dom";
 
 const ItemCard = ({id , src, title, price, }) => {

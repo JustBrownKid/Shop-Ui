@@ -1,4 +1,4 @@
-import LocationCard from '../components/ui/LocationCard.jsx';
+import LocationCard from '../components/ui/card/LocationCard.jsx';
 
 function LocationPage() {
 

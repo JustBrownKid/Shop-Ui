@@ -1,6 +1,6 @@
 import React from "react";
 import Lottie from "react-lottie";
-import NotFoundAnimation from '../../assets/Page Not Found 404.json';
+import NotFoundAnimation from '../../../assets/Page Not Found 404.json';
 
 const NotFound = () => {
   const defaultOptions = {
