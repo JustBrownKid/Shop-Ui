@@ -8,6 +8,7 @@ import HiringPage from "./Pages/HiringPage.jsx";
 import NotFound from "./components/ui/animation/NotFound.jsx";
 import CartList from "./Pages/CartPage.jsx";
 import Navbar from "./components/ui/nav/NavBar.jsx";
+import PrderPage from './Pages/OrderPage.jsx'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/hiring" element={<HiringPage />} />
       <Route path="/location" element={<LocationPage />} />
       <Route path="/cart" element={<CartList />} />
+      <Route path="/order" element={<PrderPage />} />
       <Route path="/details/:id" element={<DetailsPages />} />
       <Route path="*" element={<NotFound/>} />
       </Routes>

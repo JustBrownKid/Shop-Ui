@@ -1,6 +1,6 @@
 import React from "react";
 import Lottie from "react-lottie";
-import Loading from '../../../assets/Pokeball Loading.json';
+import Loading from '../../../assets/Loading Lottie animation.json';
 
 const NotFound = () => {
   const defaultOptions = {

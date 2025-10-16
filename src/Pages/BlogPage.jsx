@@ -6,7 +6,7 @@ import Loading from '../components/ui/animation/Loading.jsx'
 function BlogPage() {
 const items = new Array(10).fill(null);
     const { data, error, loading, refetch } = useApi(
-    `${import.meta.env.VITE_API_URL}/blogs?list=1`
+    `${import.meta.env.VITE_API_URL}/blogs`
     );
 
     if (loading) return <Loading/>;

@@ -21,7 +21,7 @@ export function useApi(url, options = {}, immediate = true) {
     } finally {
       setLoading(false);
     }
-  }, [url]); // 🔥 only depend on url
+  }, [url]);
 
   useEffect(() => {
     if (immediate) {

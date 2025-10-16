@@ -29,8 +29,6 @@ function DetailsPages() {
     if (data) setProduct(data?.data);
   }, [data]);
 
-  const handleAddToCartParent = () => {
-  };
   
   if (loading) return <Loading />;
   if (error) return <NotFound/>;
@@ -69,7 +67,7 @@ function DetailsPages() {
           </div>
 
           <ProductActions product={product} color={color} quantity={quantity} setQuantity={setQuantity}
-            onAddToCart={() => handleAddToCartParent(product, color)} />
+         />  
         </div>
       </div>
       

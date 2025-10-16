@@ -9,7 +9,7 @@ function HomePage() {
     
 
     const { data, error, loading, refetch } = useApi(
-    `${import.meta.env.VITE_API_URL}/products?home=1`
+    `${import.meta.env.VITE_API_URL}/product`
     );
 
     if (loading) return <Loading/>;

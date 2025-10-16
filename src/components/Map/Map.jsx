@@ -1,12 +1,12 @@
 import React from 'react';
 
-function Map({position, PopupText}) {
+function Map({position}) {
   const [lat, lng] = position || [34.0522, -118.2437]; // Default to Los Angeles if position is undefined
   const embedUrl = `https://maps.google.com/maps?q=${lat},${lng}&hl=en&z=17&t=m&output=embed`;
 
   return (
     <div 
-      className="w-full h-96 md:h-[500px] duration-500 overflow-hidden rounded-xl shadow-2xl border border-gray-200" 
+      className="w-full h-96 md:h-[500px] duration-500 overflow-hidden rounded-xl  border border-gray-200" 
       style={{ marginTop: "20px" }} 
     >
       <iframe
@@ -22,9 +22,6 @@ function Map({position, PopupText}) {
         loading="lazy" 
         referrerPolicy="no-referrer-when-downgrade"
       >
-        <p className="text-center p-4 text-gray-600 bg-gray-50 h-full flex items-center justify-center">
-          {PopupText || "Location Map"}
-        </p>
       </iframe>
     </div>
   );

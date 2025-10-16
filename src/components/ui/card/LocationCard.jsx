@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "antd";
 import Map from "../../Map/Map.jsx";
 
-const LocationCard = ({ title, text, phone, position, PopupText }) => {
+const LocationCard = ({ title, text, phone, position }) => {
   const [show, setShow] = useState(false);
 
   const toggleMap = () => setShow(!show);
@@ -28,7 +28,7 @@ const LocationCard = ({ title, text, phone, position, PopupText }) => {
 
         {show && (
           <div className="mt-4 w-full h-auto transition-all duration-500">
-            <Map position={position} PopupText={PopupText} />
+            <Map position={position} />
           </div>
         )}
       </div>

@@ -44,9 +44,23 @@ const CartDrawer = ({ title, open, onClose, children }) => {
       title={
        <div className="flex justify-between items-center w-full">
         <span className="font-semibold text-lg">{title}</span>
-        <Button size="deafult" onClick={onClose}>
-          <CloseOutlined />
-        </Button>
+        <Button
+          size="small"
+          onClick={onClose}
+          style={{
+            backgroundColor: "#9f9f9f",
+            border: "none",
+            borderRadius: "15%", 
+            width: "40px",
+            height: "32px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+  <CloseOutlined style={{ fontSize: "16px", fontWeight: "bold" }} />
+</Button>
+
       </div>
       }
     >
@@ -54,14 +68,14 @@ const CartDrawer = ({ title, open, onClose, children }) => {
         {children}
       </div>
 
-      <div className="px-8 py-4 border-t flex flex-col gap-2 justify-end bg-white">
+      <div className="px-10 py-4 border-t flex flex-col  justify-end bg-white">
         <CartTotal total={totalCartPrice} />
         <Button
           color="default"
           variant="solid"
           size="large"
           href="/cart"
-          icon={<ShoppingCartOutlined style={{ fontSize: "1.5em", padding: "0 4px" }} />}
+          icon={<ShoppingCartOutlined style={{ fontSize: "1.4em" }} />}
         >
           View Cart
         </Button>

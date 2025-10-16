@@ -4,7 +4,7 @@ import { ShoppingCartOutlined } from '@ant-design/icons';
 import { Badge, Button } from "antd";
 import { CartContext } from "../../Contex/CartContext";
 import CartDrawer from '../cart/CartDrawer'
-import CartPage from '../../../Pages/CartPage'
+import CartDrawerPage from '../../../Pages/CartDrawerPage'
 
 
 export default function Navbar() {
@@ -103,9 +103,8 @@ export default function Navbar() {
               onClose={() => setOpenDrawer(false)}
               zIndex={5000}
             >
-              <CartPage />
+              <CartDrawerPage />
             </CartDrawer>
-
             {/* Mobile menu button */}
             <button
               className="inline-flex md:hidden items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
