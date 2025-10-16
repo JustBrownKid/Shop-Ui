@@ -4,8 +4,8 @@ import { Flex, Tag } from 'antd';
 
 const PostCard = ({ src, title, tag, }) => {
   return (
-    <div className="group cursor-pointer m-2 bg-white rounded shadow'
-     /overflow-hidden">
+    <div className="group cursor-pointer m-2 bg-white rounded shadow
+     overflow-hidden">
       <div className="relative overflow-hidden">
         <img
           className="w-full aspect-video object-cover duration-300 group-hover:scale-110"
@@ -19,7 +19,7 @@ const PostCard = ({ src, title, tag, }) => {
         <p className="text-lg md:text-xl font-bold text-gray-900 line-clamp-1">
           {title}
         </p>
-        <Flex gap="4px 0" wrap>
+        <Flex gap="" wrap>
           <Tag bordered={true} color="processing">{tag}</Tag>
         </Flex>
 

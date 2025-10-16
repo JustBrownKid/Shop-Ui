@@ -1,4 +1,4 @@
-import { Segmented, Image ,Button} from "antd";
+import { Segmented, Image } from "antd";
 import React, { useState, useEffect } from "react";
 import ProductActions from "../components/ui/products/ProductActions.jsx";
 import ColorSelector from "../components/ui/products/ColorSelector.jsx";
@@ -11,30 +11,37 @@ import NotFound from "../components/ui/animation/NotFound.jsx";
 import { useParams } from "react-router-dom";
 import ProductOverview from '../components/ui/products/ProductOverview.jsx'
 
-
 function DetailsPages() {
   const [value, setValue] = useState("Description");
   const [product, setProduct] = useState(null);
-  const [color, setColor] = useState({});
+  const [color, setColor] = useState(null);
   const [quantity, setQuantity] = useState(1);
 
   const { id } = useParams();
 
-
   const { data, loading, error } = useApi(
-    `${import.meta.env.VITE_API_URL}/products/${id}`
+    `${import.meta.env.VITE_API_URL}/product/${id}`
   );
 
   useEffect(() => {
-    if (data) setProduct(data?.data);
+    if (data) {
+      setProduct(data);
+      setColor({ name: data.colors.default }); // set default color
+    }
   }, [data]);
 
-  
   if (loading) return <Loading />;
-  if (error) return <NotFound/>;
+  if (error) return <NotFound />;
   if (!product) return <p>Loading product...</p>;
 
-  const { image, title, vendor, sku, stock, type, price, colors } = product;
+  const { image, title, vendor, sku, stock, type, price, colors, description, specification, warranty } = product;
+
+  // Prepare info for ProductInfo
+  const infoMap = {
+    Description: description,
+    Specification: specification,
+    Warranty: warranty
+  };
 
   return (
     <div className="p-4 sm:p-6 lg:p-10 xl:p-12 bg-[#f0f0f0]">
@@ -50,7 +57,7 @@ function DetailsPages() {
             />
           </div>
         </div>
-        <div className="w-full md:w-1/2 flex flex-col  max-w-lg mx-auto md:max-w-none md:mx-0"> 
+        <div className="w-full md:w-1/2 flex flex-col max-w-lg mx-auto md:max-w-none md:mx-0"> 
           
           <ProductOverview
             title={title}
@@ -61,16 +68,14 @@ function DetailsPages() {
             price={price}
           />
 
-          <div className="flex flex-col mb-2 ">
-            <p className="text-lg sm:text-xl md:text-2xl">Color:{color.name}</p>
+          <div className="flex flex-col mb-2">
+            <p className="text-lg sm:text-xl md:text-2xl">Color: {color?.name || colors.default}</p>
             <ColorSelector setColor={setColor} size={30} colors={colors} />
           </div>
 
-          <ProductActions product={product} color={color} quantity={quantity} setQuantity={setQuantity}
-         />  
+          <ProductActions product={product} color={color} quantity={quantity} setQuantity={setQuantity} />  
         </div>
       </div>
-      
       
       <SupportDetails />
 
@@ -88,14 +93,7 @@ function DetailsPages() {
 
       <ProductInfo
         title={value}
-        info={product}
-        field={
-          value === "Description"
-            ? "description"
-            : value === "Specification"
-            ? "specification"
-            : "warranty"
-        }
+        info={infoMap[value]} // pass the corresponding object
       />
 
       <RelatedProducts />

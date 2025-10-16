@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-// Reusable Collapsible component for a single hiring item
-const HiringItem = ({ label, sections }) => {
+const HiringItem = ({ label, sections = [] }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => setIsOpen(!isOpen);
@@ -28,35 +27,28 @@ const HiringItem = ({ label, sections }) => {
       </button>
 
       <div
-        className={`transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-[2000px] py-4' : 'max-h-0'
-        }`}
+        className={`transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-[2000px] py-4' : 'max-h-0'}`}
         aria-hidden={!isOpen}
       >
         <div className="px-4 text-gray-600">
-          {
-            sections.map((section, index) => (
-              <div key={index} className="mb-4">
-                {section.title && (
-                  <p className="text-lg ml-2 font-bold text-gray-900">
-                    {section.title}
-                  </p>
-                )}
-                {Array.isArray(section.content) ? (
-                  <ul className="list-disc ml-8">
-                    {section.content.map((item, i) => (
-                      <li key={i} className="text-sm my-1 text-gray-700">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-sm my-1 text-gray-700 ml-5">
-                    {section.content}
-                  </p>
-                )}
-              </div>
-            ))}
+          {sections.map((section, index) => (
+            <div key={index} className="mb-4">
+              {section.title && (
+                <p className="text-lg ml-2 font-bold text-gray-900">{section.title}</p>
+              )}
+              {Array.isArray(section.content) ? (
+                <ul className="list-disc ml-8">
+                  {section.content.map((item, i) => (
+                    <li key={i} className="text-sm my-1 text-gray-700">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-sm my-1 text-gray-700 ml-5">{JSON.stringify(section.content)}</p>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </div>

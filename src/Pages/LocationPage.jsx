@@ -5,7 +5,7 @@ import NotFound from '../components/ui/animation/NotFound.jsx';
 
 function LocationPage() {
 const { data, error, loading, refetch } = useApi(
-    `${import.meta.env.VITE_API_URL}/locations`
+    `${import.meta.env.VITE_API_URL}/location`
     );
 
     if (loading) return <Loading/>;
@@ -14,7 +14,7 @@ const { data, error, loading, refetch } = useApi(
         <>
             <div  className='xl:px-20 lg:px-16 md:px-12 sm:px-8 px-4 py-10 bg-gray-100 min-h-screen'>
                 <div className="">
-                    {data?.data?.map((location) => (
+                    {data?.map((location) => (
                         <LocationCard title={location.title}
                             text={location.title}
                             position={[parseFloat(location.latitude), parseFloat(location.longitude)]}

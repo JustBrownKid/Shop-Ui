@@ -37,33 +37,34 @@ const OrderPage = () => {
     setLoading(true); 
     setError("");
 
-    const payload = {
-      cusName: formData.firstName + " " + formData.lastName,
-      cusPhone: formData.phone,
-      address: formData.address,
-      city: formData.city,
-      state: formData.state,
-      note: formData.note,
-      items: cart.map((item) => ({
-        product_id: item.productId,
-        color_name: item.colorName,
-         color_value: item.colorValue ,
-        quantity: item.quantity,
-        price: item.price,
-      })),
-    };
+ const payload = {
+  cusName: formData.firstName + " " + formData.lastName,
+  cusPhone: formData.phone,
+  address: formData.address,
+  city: formData.city,
+  state: formData.state,
+  note: formData.note,
+  status: 'pending',
+  total_price: cart.reduce(
+    (sum, item) => sum + Number(item.price) * Number(item.quantity),
+    0
+  ),
+   order_items: cart.map((item) => ({
+    product_id: Number(item.productId), 
+    color_name: item.colorName || '',   
+    color_value: item.colorValue || '',     
+    quantity: Number(item.quantity),      
+    price: Number(item.price),         
+  })),
+};
 
+
+    console.log(payload);
+    
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/orders`,
-        payload,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-          },
-          withCredentials: true, 
-        }
+        `${import.meta.env.VITE_API_URL}/order`,
+        payload
       );
 
       console.log('Order Response:', response.data);
@@ -81,8 +82,8 @@ const OrderPage = () => {
       });
     } catch (err) {
       console.error(err);
-      setError(err.response?.data?.message || 'Failed to submit order.');
-      alert(err.response?.data?.message || 'Failed to submit order.');
+      setError(err.response.message || 'Failed to submit order.');
+      alert(err.response.message || 'Failed to submit order.');
     } finally {
       setLoading(false);
     }
